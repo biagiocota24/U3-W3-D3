@@ -5,6 +5,13 @@ export const setJobs = (jobs) => ({
   payload: jobs,
 });
 
+export const SET_DETAIL_JOB = "SET_DETAIL_JOB";
+
+export const setDetailJob = (job) => ({
+  type: "SET_DETAIL_JOB",
+  payload: job,
+});
+
 export const SET_QUERY = "SET_QUERY";
 
 export const setQuery = (query) => ({
@@ -35,6 +42,14 @@ const mainReducer = (state = initialState, action) => {
         main: {
           ...state.main,
           query: action.payload,
+        },
+      };
+    case SET_DETAIL_JOB:
+      return {
+        ...state,
+        main: {
+          ...state.main,
+          job: action.payload,
         },
       };
     default:
