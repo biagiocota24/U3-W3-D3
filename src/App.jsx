@@ -7,6 +7,7 @@ import JobDetails from "./components/JobDetails";
 import ShowFavorite from "./components/Favorite";
 
 function App() {
+  console.log("key:", import.meta.env.VITE_ENCRYPT_KEY);
   return (
     <BrowserRouter>
       <Routes>
