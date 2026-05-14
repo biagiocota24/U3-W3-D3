@@ -4,6 +4,7 @@ import MainSearch from "./components/MainSearch";
 import CompanySearchResults from "./components/CompanySearchResults";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import JobDetails from "./components/JobDetails";
+import ShowFavorite from "./components/Favorite";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<MainSearch />} />
         <Route path="/:company" element={<CompanySearchResults />} />
         <Route path="detail/:id" element={<JobDetails />} />
+        <Route path="/favorites" element={<ShowFavorite />} />
       </Routes>
     </BrowserRouter>
   );

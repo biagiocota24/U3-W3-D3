@@ -1,14 +1,15 @@
 import { useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import Job from "./Job";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setJobs } from "../redux/reducers";
+import { setJobs } from "../redux/actions";
 
 const CompanySearchResults = () => {
   const jobs = useSelector((state) => state.main.jobs);
   const dispatch = useDispatch();
   const params = useParams();
+  const navigate = useNavigate();
 
   const baseEndpoint =
     "https://strive-benchmark.herokuapp.com/api/jobs?company=";
@@ -44,6 +45,7 @@ const CompanySearchResults = () => {
       <Row>
         <Col className="my-3">
           <h1 className="display-4">Job posting for: {params.company}</h1>
+          <Button onClick={() => navigate("/favorites")}>See favorites</Button>
           {jobs.map((jobData) => (
             <Job key={jobData._id} data={jobData} />
           ))}
